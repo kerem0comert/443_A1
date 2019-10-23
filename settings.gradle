@@ -1,0 +1,2 @@
+include ':app', ':javalib'
+rootProject.name='cng443_assigment1'
