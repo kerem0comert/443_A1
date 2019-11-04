@@ -7,6 +7,7 @@ abstract public class Person {
 
     Person(){}
 
+
     Person(String name, String eMail, String password, char gender, int age){
         this.name = name;
         this.eMail = eMail;

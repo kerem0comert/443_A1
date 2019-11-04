@@ -1,7 +1,10 @@
 package com.keremcomert.javalib;
 
+import java.util.ArrayList;
+
 public class Instructor extends Person {
     private int id;
+    private Course courseOffered;
 
     Instructor(String name, String eMail, String password, char gender, int age)
     {
@@ -14,5 +17,8 @@ public class Instructor extends Person {
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+
+    public Course getCourseOffered() { return courseOffered; }
+    public void setCourseOffered(Course courseOffered) { this.courseOffered = courseOffered; }
 
 }
