@@ -8,6 +8,23 @@ public class NonStudent extends Trainee implements Performance{
     private static final Float COEFFICENT = 0.4f;
     NonStudent(){}
 
+    /**T
+     * The constructor for NonStudent takes all the necessary arguments.
+     * All params not specific to the student are sent to their corresponding
+     * setters in the parent class.
+     * @param name
+     * @param eMail
+     * @param password
+     * @param gender
+     * @param age
+     * @param enrolledList - Even though abstract Person class has this as well, this has to
+     *                     be specific to the user since User implements the performance method
+     *                     while Person does not. And in the Performance method, enrolledList
+     *                     is used.
+     * @param premium
+     * @param job - Specific to the non-student
+     * @param position - Specific to the non-student
+     */
     public NonStudent(String name, String eMail, String password, char gender, int age,
                        ArrayList<Course> enrolledList, Boolean premium, String job, String position) {
         setName(name);
@@ -27,6 +44,12 @@ public class NonStudent extends Trainee implements Performance{
     public String getPosition() { return position; }
     public void setPosition(String position) { this.position = position; }
 
+
+    /**
+     * This method is overridden from the Performance interface. It is calculated specifically
+     * for the non-student.
+     * @return Float for monthlyFee() that calls this method.
+     */
     @Override
     public Float credit() {
         Float premiumCourseCount = 0f;

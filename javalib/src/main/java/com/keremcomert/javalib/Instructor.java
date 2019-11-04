@@ -2,6 +2,9 @@ package com.keremcomert.javalib;
 
 import java.util.ArrayList;
 
+/**
+ * Nothing spectacular here apart from some getters and setters.
+ */
 public class Instructor extends Person {
     private int id;
     private Course courseOffered;

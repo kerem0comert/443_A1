@@ -141,15 +141,15 @@ public class OnlineLearningApplication {
         allCoursesList = new ArrayList<>();
 
         allCoursesList.add(new Course(instructorList.get(0),
-                "Linear Algebra", 60f, false));
+                "Linear Algebra", 30f, false));
         allCoursesList.add(new Course(instructorList.get(1),
                 "Art History", 60f, true));
         allCoursesList.add(new Course(instructorList.get(2),
-                "Ancient Roman Law", 60f, false));
+                "Ancient Roman Law", 35f, false));
         allCoursesList.add(new Course(instructorList.get(3),
-                "Latin Dances", 60f, true));
+                "Latin Dances", 20f, true));
         allCoursesList.add(new Course(instructorList.get(4),
-                "Database Managment", 60f, false));
+                "Database Managment", 90f, false));
 
         //assign courses to instructors
         for(int i = 0; i < allCoursesList.size(); i++){
@@ -159,7 +159,8 @@ public class OnlineLearningApplication {
 
     /**
      *
-     * @return
+     * @return Trainee is not necessary, since I defined trainee as global inside the class
+     * Though I returned it since it was required in the UML
      */
     private static Trainee signUp() {
         String name, eMail, password, institution, job, position;
@@ -226,11 +227,11 @@ public class OnlineLearningApplication {
         }
     }
 
-    private static String eMailFromUser() {
-        return in.next();
-        /*if(!Patterns*/
-    }
 
+    /**
+     * if e-Mail and password matches what is on the arrayList
+     * @return true
+     */
     private static Boolean login() {
         if (trainee == null) {
             System.out.println("You need to sign up first!");
@@ -291,12 +292,19 @@ public class OnlineLearningApplication {
         System.out.format("+------+----------------------+----------------------+-----------+----------|%n");
     }
 
+    /**
+     * The user enters the course name he wants to add to his/her curriculum.
+     * The allCoursesList is traversed and if a match is found in the names,
+     * then the course is added to user's own enrolledCourses. The condition
+     * of "premiumness" is also checked.
+     */
     private static void addCourse() {
         listCourses();
         boolean courseFound = false;
         System.out.println("Enter the name of the course you want to enroll in: ");
         String enrolledCourse = in.nextLine();
         System.out.println(enrolledCourse + " enrolled");
+
         /*it would be more efficient to directly ask the ID int from the user, but since the
           assigment pdf wants me to parse all the names, I do as such*/
         for (int i = 0; i < allCoursesList.size(); i++) {
@@ -322,6 +330,12 @@ public class OnlineLearningApplication {
         if (!courseFound) System.out.println("The course you seek is not offered by the platform.");
     }
 
+
+    /**
+     * The user sees the list of his/her enrolled courses and enters the name of the one
+     * he/she wants to delete. If a match is found, the course is removed
+     * from the enrolledList.
+     */
     private static void deleteCourse() {
         if(trainee.getEnrolledList() == null || trainee.getEnrolledList().isEmpty()){
             System.out.println("You haven't enrolled in any courses yet. ");
@@ -344,6 +358,9 @@ public class OnlineLearningApplication {
         if (!courseFound) System.out.println("The course you seek is not in your curriculum.");
     }
 
+    /**
+     * All instructors are listed first. User enters the ID and more details are shown.
+     */
     private static void getInstructorDetails() {
 
         String leftAlignFormat = "| %-4d | %-21s |%n";
@@ -379,6 +396,12 @@ public class OnlineLearningApplication {
                 "|--------------------|%n");
     }
 
+
+    /**
+     * This simply changes the premium status of the user.
+     * With this done, the user will now be able to see premium courses in allCoursesList as well
+     * @return Trainee object is returned though it is not necessary.
+     */
     private static Trainee changeToPremium() {
         if(trainee.getPremium()){
             System.out.println("You are a premium member");
@@ -398,6 +421,9 @@ public class OnlineLearningApplication {
         return trainee;
     }
 
+    /**
+     * System exit is performed.
+     */
     private static void exit() {System.exit(0); }
 
 }

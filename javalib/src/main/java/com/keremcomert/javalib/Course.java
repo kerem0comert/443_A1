@@ -1,5 +1,8 @@
 package com.keremcomert.javalib;
 
+/**
+ * All the regular getters and setters are implemented for the Course class.
+ */
 public class Course {
 
     private Instructor instructor;
